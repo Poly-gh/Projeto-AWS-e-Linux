@@ -101,3 +101,13 @@
 - Para conferir o status do serviço:
 
 *systemctl status httpd*
+
+
+
+# Script de validação do serviço
+
+- Na pasta desejada, crie um arquivo com o comando
+
+*sudo nano scriptvalidacao.sh*
+
+- No arquivo, adicione o seguinte código:
