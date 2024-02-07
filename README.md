@@ -49,7 +49,7 @@
 
 
 
-# Configuração do NFS
+# Instalação, ativação e configuração do NFS
 
 - No terminal Linux (instância criada), utilizar os seguintes comandos para instalação e ativação do NFS (todos com permissão de root, com *sudo su* no início da sessão ou *sudo* na frente de cada comando):
 
@@ -73,6 +73,31 @@
 
 *systemctl restart nfs-server*
 
+- Para conferir o status do serviço:
+
+*systemctl status nfs*
+
 - Para acessar a pasta através de outra máquina:
 
 *sudo mount ip_da_sua_máquina:/mnt/nome da sua pasta /mnt/local*
+
+
+# Instalação, ativação e configuração do Apache
+
+- Ainda no terminal Linux, utilizar os seguintes comandos para realizar o procedimento em relação ao Apache (todos com permissão de root, assim como anteriormente):
+
+*yum update -y*
+
+*yum install httpd -y*
+
+*systemctl start httpd*
+
+*systemctl enable httpd*
+
+- Para configurações adicionais no arquivo do apache:
+
+*/etc/httpd/conf/httpd.conf*
+
+- Para conferir o status do serviço:
+
+*systemctl status httpd*
