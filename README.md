@@ -67,7 +67,7 @@
 
 - O arquivo estará em branco, adicione a seguinte linha e salve o arquivo:
 
-*/mnt/nomedasuapasta *(rw,sync,no_subtree_check)*
+*/mnt/nomedasuapasta* **(rw,sync,no_subtree_check)*
 
 - Após isso, reinicie o serviço com o seguinte comando:
 
