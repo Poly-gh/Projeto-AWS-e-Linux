@@ -26,7 +26,7 @@
 -----------------------------------------------------------------
 
 
-# Criação da Instância EC2
+# Criação e configuração da Instância EC2
 
 - No painel de controle da AWS, acessar a área de EC2 para a criação da instância.
     - Preencher o campo com nome e tags necessárias.
@@ -35,4 +35,44 @@
     - Criar um par de chaves do tipo RSA.
     - Na área de configuração de rede, criar uma VPC para a instância, além de um novo grupo de segurança.
     - Na área de armazenamento, aumentar para 16GB.
+- Acessar Segurança > Grupos de segurança no painel esquerdo, selecionar o grupo referente a EC2 criada e selecionar “Editar regras de entrada” para liberar o acesso as portas necessárias:
 
+| Porta | Protocolo | Descrição |
+| --- | --- | --- |
+| 22 | TCP | SSH |
+| 111 | TCP | RPC |
+| 111 | UDP | RPC |
+| 2049 | TCP | NFS |
+| 2049 | UDP | NFS |
+| 80 | TCP | HTTP |
+| 443 | TCP | HTTPS |
+
+
+
+# Configuração do NFS
+
+- No terminal Linux (instância criada), utilizar os seguintes comandos para instalação e ativação do NFS (todos com permissão de root, com *sudo su* no início da sessão ou *sudo* na frente de cada comando):
+
+*yum -y install nfs-utils*
+
+*system systemctl enable nfs-server*
+
+- Criar um novo diretório para o nfs:
+
+*mkdir /mnt/nfs/*nome da sua pasta
+
+*cd /etc*
+
+*nano exports*
+
+- O arquivo estará em branco, adicione a seguinte linha e salve o arquivo:
+
+*/mnt/*nomedasuapasta **(rw,sync,no_subtree_check)*
+
+- Após isso, reinicie o serviço com o seguinte comando:
+
+*systemctl restart nfs-server*
+
+- Para acessar a pasta através de outra máquina:
+
+*sudo mount* ip_da_sua_máquina*:/mnt/*nome da sua pasta */mnt/local*
