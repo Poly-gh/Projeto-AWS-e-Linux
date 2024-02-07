@@ -59,7 +59,7 @@
 
 - Criar um novo diretório para o nfs:
 
-*mkdir /mnt/nfs/*nome da sua pasta
+*mkdir /mnt/nfs/nome da sua pasta*
 
 *cd /etc*
 
@@ -67,7 +67,7 @@
 
 - O arquivo estará em branco, adicione a seguinte linha e salve o arquivo:
 
-*/mnt/*nomedasuapasta **(rw,sync,no_subtree_check)*
+*/mnt/nomedasuapasta *(rw,sync,no_subtree_check)*
 
 - Após isso, reinicie o serviço com o seguinte comando:
 
@@ -75,4 +75,4 @@
 
 - Para acessar a pasta através de outra máquina:
 
-*sudo mount* ip_da_sua_máquina*:/mnt/*nome da sua pasta */mnt/local*
+*sudo mount ip_da_sua_máquina:/mnt/nome da sua pasta /mnt/local*
