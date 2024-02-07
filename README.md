@@ -23,3 +23,16 @@
     - O script deve ser executado a cada 5 minutos, de forma automatizada.
 
 
+-----------------------------------------------------------------
+
+
+# Criação da Instância EC2
+
+- No painel de controle da AWS, acessar a área de EC2 para a criação da instância.
+    - Preencher o campo com nome e tags necessárias.
+    - Escolher a AMI Amazon Linux 2 AMI.
+    - Escolher o tipo de instância t3.small.
+    - Criar um par de chaves do tipo RSA.
+    - Na área de configuração de rede, criar uma VPC para a instância, além de um novo grupo de segurança.
+    - Na área de armazenamento, aumentar para 16GB.
+
