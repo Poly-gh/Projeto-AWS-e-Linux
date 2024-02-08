@@ -143,3 +143,22 @@
 - Para executar o script, use o comando:
     
         ./script.sh
+
+
+-----------------------------------------------------------------
+
+
+## Automação do script de validação
+
+- Para realizar a automação do script, para que ele seja executado a cada 5 minutos, basta utilizar o serviço cron, usando o seguinte comando:
+        
+        crontab -e
+
+- Dentro do arquivo, adicione a seguinte linha de código:
+
+```bash
+    */5 * * * * /home/ec2-user/script.sh
+```
+- Para verificar se a tarefa está devidamente agendada no serviço cron, basta utilizar o comando:
+
+        crontab -l
