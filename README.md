@@ -55,33 +55,33 @@
 
 - No terminal Linux (instância criada), utilizar os seguintes comandos para instalação e ativação do NFS (todos com permissão de root, com *sudo su* no início da sessão ou *sudo* na frente de cada comando):
 
-    yum -y install nfs-utils
+        yum -y install nfs-utils
 
-    system systemctl enable nfs-server
+        system systemctl enable nfs-server
 
 - Criar um novo diretório para o nfs:
 
-    mkdir /mnt/nfs/nome da sua pasta   
+        mkdir /mnt/nfs/nome da sua pasta   
 
-    cd /etc
+        cd /etc
 
-    nano exports
+        nano exports
 
 - O arquivo estará em branco, adicione a seguinte linha e salve o arquivo:
 
-    /mnt/nomedasuapasta *(rw,sync,no_subtree_check)
+        /mnt/nomedasuapasta *(rw,sync,no_subtree_check)
 
 - Após isso, reinicie o serviço com o seguinte comando:
 
-    systemctl restart nfs-server
+        systemctl restart nfs-server
 
 - Para conferir o status do serviço:
 
-    systemctl status nfs
+        systemctl status nfs
 
 - Para acessar a pasta através de outra máquina:
 
-    sudo mount ip_da_sua_máquina:/mnt/nome da sua pasta /mnt/local
+        sudo mount ip_da_sua_máquina:/mnt/nome da sua pasta /mnt/local
 
 
 -----------------------------------------------------------------
@@ -91,21 +91,21 @@
 
 - Ainda no terminal Linux, utilizar os seguintes comandos para realizar o procedimento em relação ao Apache (todos com permissão de root, assim como anteriormente):
 
-    yum update -y
+        yum update -y
 
-    yum install httpd -y
+        yum install httpd -y
 
-    systemctl start httpd
+        systemctl start httpd
 
-    systemctl enable httpd
+        systemctl enable httpd
 
 - Para configurações adicionais no arquivo do apache:
 
-    /etc/httpd/conf/httpd.conf
+        /etc/httpd/conf/httpd.conf
 
 - Para conferir o status do serviço:
 
-    systemctl status httpd
+        systemctl status httpd
 
 
 -----------------------------------------------------------------
@@ -115,7 +115,7 @@
 
 - Na pasta desejada, crie um arquivo com o comando
 
-    sudo nano scriptvalidacao.sh
+        sudo nano scriptvalidacao.sh
 
 - No arquivo, adicione o seguinte código:
 
@@ -134,4 +134,12 @@
         MENSAGEM="O $SERVICO está offline"
         echo "$DATA $HORA - $SERVICO - inactive - $MENSAGEM" >> /mnt/nfs/anome_da_sua_pasta/offline.txt
     fi
-    ```
+```
+
+- Após salvar o arquivo, utilize os seguinte comando para permitir que o script seja executado:
+    
+        chmod +x script.sh
+    
+- Para executar o script, use o comando:
+    
+        ./script.sh
