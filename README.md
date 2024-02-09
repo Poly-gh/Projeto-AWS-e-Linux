@@ -157,7 +157,7 @@
 - Dentro do arquivo, adicione a seguinte linha de código:
 
 ```bash
-    */5 * * * * /home/ec2-user/script.sh
+    */5 * * * * /caminho_do_seu_script
 ```
 - Para verificar se a tarefa está devidamente agendada no serviço cron, basta utilizar o comando:
 
